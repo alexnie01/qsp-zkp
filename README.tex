@@ -1,4 +1,17 @@
-ZKPs in Identrix}
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\title{Identrix ZKP}
+\author{Alexander Nie}
+\date{August 2018}
+
+\begin{document}
+
+\maketitle
+
+\section*{ZKPs in Identrix}
 
 For its zkSNARK, Identrix will use a modified version of the Quadratic Spanning Program (QSP) Problem. Briefly, this problem involves taking a set of polynomials $v_i,w_i, t\big|_{i=1}^m$ over a field $\mathbb{F}$ and finding a linear combination of the $v$ and $w$ polynomials which forms a multiple of the target polynomial $t$. That is, we want to find the elements $a_i,b_i$ of the field $\mathbb{F}$ such that the elements multiplied by the polynomials $v_i, w_i$ give a multiple of $t$. In mathematical notation,
 
@@ -18,3 +31,7 @@ Two improvements features distinguish the Identrix ZKP scheme from traditional Z
 which is a number rather than an algebraic expression. Second, the polynomials are encoded using a homomorphic transformation along an elliptic curve. Essentially, this is a transformation $E$ with the property $E(xy)=E(x)E(y)$ which allows us to encode the test-point $x_0$ and the polynomials since $E(a_iv_i(x_0))=a_iv_i(E(x_0))$. A further level of obfuscation is added by multiplying by a random constant $\alpha$ so that the Service Provider cannot figure out the $a_i,b_i$ supplied by the Prover (instead they receive $\alpha a_i$, $\alpha b_i$). Then the equality must still hold for the proof to be true:
 
 \[\left(\sum_{i=1}^m a_i E(\alpha v_i(x_0))\right)\left(\sum_{i=1}^m b_i E(\alpha w_i(x_0))\right) = E(\alpha h(x_0))E(\alpha t(x_0))\]
+
+
+
+\end{document}
